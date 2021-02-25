@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "fba78afa-c069-4897-bc8c-3d929fb4d11e",
+		"name": "断言",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "断言",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//前置条件\r",
+							"//要用Javascript语言编写"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//断言（判断预期结果和实际结果是否一致）\r",
+							"//要用Javascript语言编写\r",
+							"\r",
+							"// //判断响应状态码是否等于预期结果\r",
+							"// pm.test(\"Status code is 200\", function () { //引号内写的是断言通过后的提示语\r",
+							"//     pm.response.to.have.status(200);//括号内填写预期结果\r",
+							"// });\r",
+							"\r",
+							"// //判断响应实体中是否包含预期的字符串\r",
+							"// pm.test(\"Body matches string\", function () {\r",
+							"//     pm.expect(pm.response.text()).to.include(\"过眼云烟\");\r",
+							"// });\r",
+							"\r",
+							"\r",
+							"// //扩展1： 把多余的断言写在一个函数里\r",
+							"// pm.test(\"Body matches string\", function () {\r",
+							"//      pm.expect(pm.response.text()).to.include(\"静静\");\r",
+							"//      pm.expect(pm.response.text()).to.include(\"过眼云烟\");\r",
+							"//      pm.response.to.have.status(200);\r",
+							"// });\r",
+							"\r",
+							"\r",
+							"// //扩展2： 不包含：        to.not \r",
+							"// pm.test(\"Body matches string\", function () {\r",
+							"//      pm.expect(pm.response.text()).to.not.include(\"嘿嘿\");\r",
+							"//      pm.expect(pm.response.text()).to.not.include(\"哈哈\");\r",
+							"//      pm.response.to.not.have.status(300);\r",
+							"// });\r",
+							"\r",
+							"\r",
+							"// //判断响应实体中某一个键的值是否等于预期结果\r",
+							"// //只适用于响应数据中是json格式的\r",
+							"// pm.test(\"Your test name\", function () {\r",
+							"//     var jsonData = pm.response.json();\r",
+							"//     //判断生成的数据中的'result'中的'totalCount'的值是否为366128    （python格式）\r",
+							"//     pm.expect(jsonData['result']['totalCount']).to.eql(366128);\r",
+							"//     //也可以写成 用点隔开的形式（javascript格式）\r",
+							"//     pm.expect(jsonData.result.list[0].name).to.eql(\"可爱的秋天\");\r",
+							"// });\r",
+							"\r",
+							"\r",
+							"// // 判断响应数据是否等于预期结果\r",
+							"// // 只能在响应数据是字符串的时候才能使用\r",
+							"// pm.test(\"Body is correct\", function () {\r",
+							"//     pm.response.to.have.body(\"response_body_string\");\r",
+							"// });\r",
+							"\r",
+							"\r",
+							"\r",
+							"// //判断响应头部域中是否包含预期的字段\r",
+							"// pm.test(\"Content-Type is present\", function () {\r",
+							"//     pm.response.to.have.header(\"Content-Type\");\r",
+							"// });\r",
+							"\r",
+							"\r",
+							"\r",
+							"// //判断响应时间是否小于预期的时间\r",
+							"// pm.test(\"Response time is less than 200ms\", function () {\r",
+							"//     pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"// });\r",
+							"\r",
+							"\r",
+							"\r",
+							"// //判断响应状态码是否是预期结果中的某一个\r",
+							"// pm.test(\"Successful POST request\", function () {\r",
+							"//     pm.expect(pm.response.code).to.be.oneOf([200, 201, 202, 301, 302, 304]);\r",
+							"// });\r",
+							"\r",
+							"\r",
+							"\r",
+							"// // 判断响应状态码的解释是否等于预期的结果\r",
+							"// pm.test(\"Status code name has string\", function () {\r",
+							"//     pm.response.to.have.status(\"OK\");\r",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://zuowen.api.juhe.cn/zuowen/baseList?key=114451ae1a993480804431bed3e4de54&id=1",
+					"protocol": "http",
+					"host": [
+						"zuowen",
+						"api",
+						"juhe",
+						"cn"
+					],
+					"path": [
+						"zuowen",
+						"baseList"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "114451ae1a993480804431bed3e4de54"
+						},
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
